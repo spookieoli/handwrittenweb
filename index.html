@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Recog</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="tensorflow.js" charset="utf-8"></script>
+    <script src="opencv.js" charset="utf-8"></script>
+    <script src="angular.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body ng-controller="main">
+    <div class="dcanvas">
+      <canvas class="c" ng-mouseleave="leave()" ng-mousedown="startpaint($event)" ng-mouseup="stoppaint($event)" ng-mousemove="paint($event)" id="lcanvas" width="224" height="224"></canvas>
+      <canvas class="d" id="dstCanvas" width="224" height="224"></canvas>
+    </div>
+    <div class="btns">
+      <button ng-disabled="m == false" class="btn" ng-click="workImage()" type="button" name="button">Bild aufbereiten</button>
+      <button ng-disabled="m == false" class="btn" ng-click="predict()"type="button" name="button">Zahl erkennen</button>
+      <p>Die Zahl lautet: {{zahl}}</p>
+      <p>Sollte es eine andere Zahl gewesen sein bitte klicken:</p>
+      <button ng-disabled="m == false" ng-repeat="i in digits" type "btn$index" ng-click="retrain($index);" name="button">{{digits[$index]}}</button>
+      <div>
+        <button type="download" ng-click="download_model()" name="button">Download</button>
+      </div>
+    </div>
+  </body>
+</html>

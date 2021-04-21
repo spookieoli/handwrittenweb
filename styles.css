@@ -1,0 +1,24 @@
+.dcanvas{
+  height: 224px;
+  width: 455px;
+}
+
+.image{
+  height: 224px;
+  width: 224px;
+  float:right;
+  display: inline-block;
+}
+
+.c{
+  border: solid 1px black;
+}
+
+.d{
+  border: solid 1px black;
+  float: right;
+}
+
+.btns{
+  margin-top:20px;
+}
